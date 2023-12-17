@@ -1,13 +1,19 @@
+"use client";
+
 import { createContext, useEffect, useState } from "react";
 
 export const AuthContext = createContext(null);
 
 const AuthContextProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(
-    JSON.parse(localStorage.getItem("patchingMicroservice") || "")
-  );
+  const [currentUser, setCurrentUser] = useState(null);
 
-  useEffect(() => {
+    useEffect(() => {
+      JSON.parse(localStorage.getItem("patchingMicroservice")) && setCurrentUser(JSON.parse(localStorage.getItem("patchingMicroservice")));
+    }, []);
+    
+    
+    
+    useEffect(() => {
     if (currentUser && currentUser.token)
       localStorage.setItem("patchingMicroservice", JSON.stringify(currentUser));
   }, [currentUser]);
