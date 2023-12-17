@@ -1,4 +1,4 @@
-import { operations } from "@/utils/constants";
+import { operations } from "@/utils/utils";
 
 const Operation = ({ jsonPatch, setJsonPatch }) => {
   return (
