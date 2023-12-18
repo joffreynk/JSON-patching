@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import { useState } from "react"
+import { useState } from "react";
 import Operation from "./operation";
 import CreatePath from "./CreatePath";
 
@@ -20,8 +20,10 @@ const Patchform = () => {
     <div>
       <Operation jsonPatch={jsonPatch} setJsonPatch={setJsonPatch} />
 
-      {  jsonPatch.op && (
-        <CreatePath pathProps={{ jsonPatch, setJsonPatch, setjsonObject, jsonObject }} />
+      {jsonPatch.op && (
+        <CreatePath
+          pathProps={{ jsonPatch, setJsonPatch, setjsonObject, jsonObject }}
+        />
       )}
 
       <div className="pt-7">
@@ -42,6 +44,6 @@ const Patchform = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Patchform
+export default Patchform;
